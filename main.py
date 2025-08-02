@@ -42,6 +42,10 @@ def health():
 
 ALLOWED_GIT = {"status", "add", "commit", "push", "pull", "log", "diff"}
 
+@app.get("/echo")
+def echo(msg: str):
+    return {"echo": msg}
+
 @app.post("/git")
 def git_cmd(rel_repo: str, sub_cmd: str):
     """
